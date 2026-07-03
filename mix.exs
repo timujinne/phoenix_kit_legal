@@ -57,7 +57,12 @@ defmodule PhoenixKitLegal.MixProject do
   defp deps do
     [
       # PhoenixKit provides the Module behaviour, Settings API, and core infrastructure.
-      {:phoenix_kit, "~> 1.7"},
+      # 1.7.170 introduces PhoenixKit.Module.reserved_route_prefixes/0, which
+      # this module implements (@impl PhoenixKit.Module) — an older core
+      # doesn't declare that callback in the behaviour, so this floor isn't
+      # optional: `@impl` on an undeclared callback is a compile error, not a
+      # graceful no-op.
+      {:phoenix_kit, "~> 1.7.170"},
 
       # Publishing module for storing generated legal pages as posts.
       {:phoenix_kit_publishing, "~> 0.1"},
