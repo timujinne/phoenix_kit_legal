@@ -672,25 +672,17 @@
                 <% else %>
                   <%!-- Notice mode options --%>
                   <div class="form-control">
-                    <label class="label cursor-pointer justify-start gap-3">
-                      <input
-                        type="checkbox"
-                        name="hide_for_authenticated"
-                        value="true"
-                        class="checkbox checkbox-primary"
-                        checked={@hide_for_authenticated}
-                      />
-                      <div>
-                        <span class="label-text font-medium">
-                          {gettext("Hide for authenticated users")}
-                        </span>
-                        <p class="text-sm text-base-content/60">
-                          {gettext(
-                            "Don't show consent banner to logged-in users (they agreed via Terms)"
-                          )}
-                        </p>
-                      </div>
-                    </label>
+                    <.checkbox
+                      name="hide_for_authenticated"
+                      checked={@hide_for_authenticated}
+                      label={gettext("Hide for authenticated users")}
+                    >
+                      <:description>
+                        {gettext(
+                          "Don't show consent banner to logged-in users (they agreed via Terms)"
+                        )}
+                      </:description>
+                    </.checkbox>
                   </div>
 
                   <%!-- Hidden icon_position for notice mode (keep current value) --%>
@@ -712,23 +704,15 @@
 
                 <%!-- Google Consent Mode --%>
                 <div class="form-control">
-                  <label class="label cursor-pointer justify-start gap-3">
-                    <input
-                      type="checkbox"
-                      name="google_consent_mode"
-                      value="true"
-                      class="checkbox checkbox-primary"
-                      checked={@google_consent_mode}
-                    />
-                    <div>
-                      <span class="label-text font-medium">
-                        {gettext("Google Consent Mode v2")}
-                      </span>
-                      <p class="text-sm text-base-content/60">
-                        {gettext("Integrate with Google Analytics/Ads consent signals")}
-                      </p>
-                    </div>
-                  </label>
+                  <.checkbox
+                    name="google_consent_mode"
+                    checked={@google_consent_mode}
+                    label={gettext("Google Consent Mode v2")}
+                  >
+                    <:description>
+                      {gettext("Integrate with Google Analytics/Ads consent signals")}
+                    </:description>
+                  </.checkbox>
                 </div>
 
                 <div class="card-actions justify-end">

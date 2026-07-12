@@ -61,8 +61,9 @@ defmodule PhoenixKitLegal.MixProject do
       # this module implements (@impl PhoenixKit.Module) — an older core
       # doesn't declare that callback in the behaviour, so this floor isn't
       # optional: `@impl` on an undeclared callback is a compile error, not a
-      # graceful no-op.
-      {:phoenix_kit, "~> 1.7.170"},
+      # graceful no-op. 1.7.184 adds `disabled`/`wrapper_class`/`title`/
+      # `:description` to `PhoenixKitWeb.Components.Core.Checkbox`, used here.
+      {:phoenix_kit, "~> 1.7.184"},
 
       # Publishing module for storing generated legal pages as posts.
       {:phoenix_kit_publishing, "~> 0.1"},
